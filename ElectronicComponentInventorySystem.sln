@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31727.386
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElectronicComponentInventorySystem.UI", "ElectronicComponentInventorySystem\ElectronicComponentInventorySystem.UI.csproj", "{79F0B190-9489-4DD5-9478-C2E2E8D92F6D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElectronicComponentInventSyst.BLL", "ElectronicComponentInventSyst.BLL\ElectronicComponentInventSyst.BLL.csproj", "{BDC1E7AA-624C-4259-A16A-62365EAA3C2E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{79F0B190-9489-4DD5-9478-C2E2E8D92F6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79F0B190-9489-4DD5-9478-C2E2E8D92F6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79F0B190-9489-4DD5-9478-C2E2E8D92F6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79F0B190-9489-4DD5-9478-C2E2E8D92F6D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDC1E7AA-624C-4259-A16A-62365EAA3C2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDC1E7AA-624C-4259-A16A-62365EAA3C2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDC1E7AA-624C-4259-A16A-62365EAA3C2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDC1E7AA-624C-4259-A16A-62365EAA3C2E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E2EA1784-7C4E-455F-9AC1-F1161C686974}
+	EndGlobalSection
+EndGlobal
