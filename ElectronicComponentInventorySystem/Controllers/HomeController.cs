@@ -1,4 +1,5 @@
 ﻿using ElectronicComponentInventorySystem.Models;
+using ElectronicComponentInventSyst.BLL;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -12,15 +13,18 @@ namespace ElectronicComponentInventorySystem.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly DbOperations _operations;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, DbOperations operations)
         {
             _logger = logger;
+            _operations = operations;
         }
 
         public IActionResult Index()
         {
-            return View();
+            var components= _operations.GetComponents();
+            return View(components);
         }
 
         public IActionResult Privacy()
