@@ -27,6 +27,11 @@ namespace ElectronicComponentInventorySystem.Controllers
             return View(components);
         }
 
+        public IActionResult ComponentDB()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();

@@ -3,6 +3,51 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Welcome to the Electronic Component Inventory Management System</h1>
+    <p>Add Part</p>
 </div>
+<fieldset>
+    <form action="#" autocomplete="on" method="get">
+        <table style="width:100%">
+            <tr>
+                <td><label>Name:</label></td>
+                <th colspan="2"><input type="text" style="height:25px; width:1000px;"></th>
+            </tr>
+            <tr>
+                <td><label>Description:</label></td>
+                <th colspan="2"><input type="text" style="height:25px; width:1000px;"></th>
+            </tr>
+            <tr>
+                <td><label>Category:</label></td>
+                <th colspan="2">
+                    <select input type="text" style="height:25px; width:1000px;">
+                        <option value="" selected="selected"></option>
+                    </select>
+            </tr>
+            <tr>
+                <td><label>Storage Location:</label></td>
+                <th colspan="2">
+                    <select input type="text" style="height:25px; width:1000px;">
+                        <option value="" selected="selected"></option>
+                    </select>
+                </th>
+            </tr>
+            <tr>
+                <td><label>Footprint:</label></td>
+                <th><input type="radio"><label>None</label></th>
+                <th>
+                    <input type="radio"><select input type="text" style="height:25px; width:910px;">
+                    <option value="" selected="selected"></option>
+                    </select>
+            </tr>
+            <tr>
+                <td><label>Stock Level:</label></td>
+                <th colspan="2">
+                    <input type="text" style="height:25px; width:400px;">
+                    <label>Stock User:</label><input type="text" style="height:25px; width:400px;"><br>
+                </th>
+            </tr>
+        </table>
+        <input id="SaveButtonId" type="button" value="Save" /><input id="SaveButtonId" type="button" value="Cancel" />
+    </form>
+</fieldset>
