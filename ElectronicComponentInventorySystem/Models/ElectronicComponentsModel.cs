@@ -5,9 +5,8 @@ using System.Threading.Tasks;
 
 namespace ElectronicComponentInventorySystem.UI.Models
 {
-    public class ElectronicComponents
+    public class ElectronicComponentsModel
     {
-        public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public string Category { get; set; } //drop-down with values

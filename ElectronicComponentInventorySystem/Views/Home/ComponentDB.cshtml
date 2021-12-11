@@ -1,8 +1,65 @@
-﻿@{
+﻿
+@{
     ViewData["Title"] = "Electronic Component Database";
 }
 
 <div class="text-center">
     <h1 class="display-4">Construction in progress... There will be a table with electronic components</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+    <h2>Parts List</h2>
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        border: 1px solid #ddd;
+    }
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+</style>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Category</th>
+            <th>Storage Location</th>
+            <th>Footprint</th>
+            <th>Stock Level</th>
+            <th>Stock User</th>
+
+
+        </tr>
+        <tr>
+            <td>@Model.Name</td>
+            <td>@Model.Description</td>
+            <td>@Model.Category</td>
+            <td>@Model.StorageLocation</td>
+            <td>@Model.Footprint</td>
+            <td>@Model.StockLevel</td>
+            <td>@Model.StockUser</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>

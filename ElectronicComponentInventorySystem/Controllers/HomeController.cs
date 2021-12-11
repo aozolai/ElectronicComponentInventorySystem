@@ -27,6 +27,11 @@ namespace ElectronicComponentInventorySystem.Controllers
             return View(components);
         }
 
+        public IActionResult AddPartForm()
+        {
+            return View();
+        }
+
         public IActionResult ComponentDB()
         {
             return View();
@@ -35,6 +40,11 @@ namespace ElectronicComponentInventorySystem.Controllers
         public IActionResult Privacy()
         {
             return View();
+        }
+
+        public IActionResult ModifyViewData(string name, string description, string category, string storageLocation, string footprint, int stockLevel, string stockUser)
+        {
+            return RedirectToAction("AddPartForm");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
