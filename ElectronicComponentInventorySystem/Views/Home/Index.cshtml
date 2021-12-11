@@ -34,16 +34,16 @@
             </tr>
             <tr>
                 <td><label>Footprint:</label></td>
-                <th><input type="radio"><label>None</label></th>
+                <th><input type="radio" id="none" name="footprint"><label for="none">None</label></th>
                 <th>
-                    <input type="radio"><select input type="text" style="height:25px; width:910px;">
+                    <input type="radio" id="_footprint" name="footprint"><select input type="text" style="height:25px; width:930px;">
                     <option value="" selected="selected"></option>
                     </select>
             </tr>
             <tr>
                 <td><label>Stock Level:</label></td>
                 <th colspan="2">
-                    <input type="text" style="height:25px; width:400px;">
+                    <input type="number" min="0" max="100" style="height:25px; width:400px;">
                     <label>Stock User:</label><input type="text" style="height:25px; width:400px;"><br>
                 </th>
             </tr>
