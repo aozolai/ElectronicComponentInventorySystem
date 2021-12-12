@@ -3,77 +3,109 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome to the Electronic Component Inventory Management System</h1>
     <br>
-    <br>
-    <br>
-    <br>
-    <h4>Add Part</h4>
+    <h3>Add Part</h3>
 </div>
-<fieldset>
-    <form action="#" autocomplete="on" method="get">
-        @using (Html.BeginForm("ModifyViewData", "Home", FormMethod.Post))
-        {
-            <table style="width:100%">
-                <tr>
-                    <td><label>Name:</label></td>
-
-                    <th colspan="2"><input type="text" name="name" style="height:25px; width:1000px;"></th>
-
-                </tr>
-                <tr>
-                    <td><label>Description:</label></td>
-                    <th colspan="2"><input type="text" name="description" style="height:25px; width:1000px;"></th>
-                </tr>
-                <tr>
-                    <td><label>Category:</label></td>
-                    <th colspan="2">
-                        <select input type="text" name="category" style="height:25px; width:1000px;">
-                            <option value="" selected="selected"></option>
-                            <option value="1">Active Components</option>
-                            <option value="2">Passive Components</option>
-                            <option value="3">Electromechanical Parts</option>
-                            <option value="4">Mechanical Parts</option>
-                            <option value="5">Cables</option>
-                            <option value="6">Speakers and Buzzers</option>
-                            <option value="7">V Modules</option>
-                            <option value="8">W PC Accessories</option>
-                            <option value="9">X PCB Material</option>
-                            <option value="10">Y Other Stuff</option>
-                            <option value="3">Z Cooking</option>
-                            <option value="3">Z Projects</option>
-                        </select>
-                </tr>
-                <tr>
-                    <td><label>Storage Location:</label></td>
-                    <th colspan="2">
-                        <select input type="text" name="storageLocation" style="height:25px; width:1000px;">
-                            <option value="" selected="selected"></option>
-                            <option value="1">Box A</option>
-                            <option value="2">Box B</option>
-                        </select>
-                    </th>
-                </tr>
-                <tr>
-                    <td><label>Footprint:</label></td>
-                    <th><input type="radio" id="none" name="footprint"><label for="none">&nbsp;&nbsp;None&nbsp;&nbsp;&nbsp;&nbsp;</label></th>
-                    <th>
-                        <input type="radio" id="_footprint" name="footprint">&nbsp;&nbsp;<select input type="text" style="height:25px; width:895px;">
-                            <option value="" selected="selected"></option>
-                            <option value="1">THT</option>
-                            <option value="2">SMD</option>
-                        </select>
-                </tr>
-                <tr>
-                    <td><label>Stock Level:</label></td>
-                    <th colspan="3">
-                        <input type="number" name="stockLevel" min="0" max="100" style="height:25px; width:400px;">
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;Stock User:&nbsp;&nbsp;</label><input type="text" name="stockUser" style="height:25px; width:400px;">
-                    </th>
-                </tr>
-            </table>
-            <br>
-            <input id="SaveButtonId" type="submit" value="Save" /><input id="CancelButtonId" type="button" value="Cancel" />
-        }
-    </form>
-</fieldset>
+    @using (Html.BeginForm("ModifyViewData", "Home", FormMethod.Post))
+    {
+    <div class="jumbotron">
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-form-label">Electronic Component:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="component" required>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="description" class="col-sm-2 col-form-label">Description:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="description">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="categorySelect" class="col-sm-2 col-form-label">Category:</label>
+            <div class="col-sm-10">
+                <div class="col-sm-10">
+                    <input class="form-check-input" type="radio" name="radioCategory" id="radios1" value="option1">
+                    <label class="form-check-label" for="exampleRadios1">
+                        Choose existing:
+                    </label>
+                    <select class="form-control" id="categorySelect">
+                        <option value="" selected="selected"></option>
+                        <option value="1">Active Components</option>
+                        <option value="2">Passive Components</option>
+                        <option value="3">Electromechanical Parts</option>
+                        <option value="4">Mechanical Parts</option>
+                        <option value="5">Cables</option>
+                        <option value="6">Speakers and Buzzers</option>
+                        <option value="7">V Modules</option>
+                        <option value="8">W PC Accessories</option>
+                        <option value="9">X PCB Material</option>
+                        <option value="10">Y Other Stuff</option>
+                        <option value="11">Z Cooking</option>
+                        <option value="12">Z Projects</option>
+                    </select>
+                </div>
+                <div class="col-sm-10">
+                    <input class="form-check-input" type="radio" name="radioCategory" id="radios1" value="option2">
+                    <label class="form-check-label" for="exampleRadios1">
+                        Add new:
+                    </label>
+                    <input type="text" class="form-control" id="categorySelect">
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="storageLocation" class="col-sm-2 col-form-label">Storage Location:</label>
+            <div class="col-sm-10">
+                <div class="col-sm-10">
+                    <input class="form-check-input" type="radio" name="radioStorage" id="radios2" value="option1" checked required>
+                    <label class="form-check-label" for="exampleRadios2">
+                        Choose existing:
+                    </label>
+                    <select class="form-control" id="storageSelect">
+                        <option value="" selected="selected"></option>
+                        <option value="1">Box A</option>
+                        <option value="2">Box B</option>
+                    </select>
+                </div>
+                <div class="col-sm-10">
+                    <input class="form-check-input" type="radio" name="radioStorage" id="radios2" value="option2">
+                    <label class="form-check-label" for="exampleRadios2">
+                        Add new:
+                    </label>
+                    <input type="text" class="form-control" id="categorySelect">
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="footprint" class="col-sm-2 col-form-label">Footprint:</label>
+            <div class="col-sm-10">
+                <div class="col-sm-10">
+                    <input class="form-check-input" type="radio" name="radioFootprint" id="radios2" value="option1">
+                    <label class="form-check-label" for="exampleRadios2">
+                        None
+                    </label>
+                </div>
+                <div class="input-group-prepend">
+                    <input type="radio" name="radioFootprint" id="radios2" value="option1">
+                    <select class="form-control" id="footprintSelect">
+                        <option value="" selected="selected"></option>
+                        <option value="1">THT</option>
+                        <option value="2">SMD</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="stockLevel" class="col-sm-2 col-form-label">Stock Level:</label>
+            <div class="col-sm-3">
+                <input type="number" min="0" max="100" class="form-control" id="stockLevel">
+            </div>
+            <label for="stockUser" class="col-sm-2 col-form-label">Stock User:</label>
+            <div class="col-sm-5">
+                <input type="text" class="form-control" id="stockUser" placeholder="admin">
+            </div>
+        </div>
+    </div>
+        <button input id="SaveButtonId" type="submit" class="btn btn-success">Save</button> <button input id="CancelButtonId" type="button" class="btn btn-outline-secondary">Cancel</button>
+    }

@@ -1,4 +1,4 @@
-﻿
+﻿@model ElectronicComponentInventorySystem.UI.Models.ElectronicComponentsModel
 @{
     ViewData["Title"] = "Electronic Component Database";
 }
@@ -6,60 +6,26 @@
 <div class="text-center">
     <h1 class="display-4">Construction in progress... There will be a table with electronic components</h1>
 </div>
-    <h2>Parts List</h2>
-<style>
-    table {
-        border-collapse: collapse;
-        width: 100%;
-        border: 1px solid #ddd;
-    }
-    tr:nth-child(even) {
-        background-color: #f2f2f2;
-    }
-</style>
-    <table>
-        <tr>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Category</th>
-            <th>Storage Location</th>
-            <th>Footprint</th>
-            <th>Stock Level</th>
-            <th>Stock User</th>
+<h2>Parts List</h2>
+<ul class="list-group list-group-horizontal">
+    <li class="list-group-item">Name</li>
+    <li class="list-group-item">Description</li>
+    <li class="list-group-item">Category</li>
+    <li class="list-group-item">Storage Location</li>
+    <li class="list-group-item">Footprint</li>
+    <li class="list-group-item">Stock Level</li>
+    <li class="list-group-item">Stock User</li>
+</ul>
+<ul class="list-group list-group-horizontal-sm">
+    <!--@foreach (var components in ElectronicComponentInventSyst.BLL.DbOperations.GetComponents())-->
 
+    <li class="list-group-item">@Html.DisplayFor(modelItem => components.Name)</li>
+    <li class="list-group-item">@Html.DisplayFor(modelItem => components.Description)</li>
+    <li class="list-group-item">@Html.DisplayFor(modelItem => components.Category)</li>
+    <li class="list-group-item">@Html.DisplayFor(modelItem => components.StorageLocation)</li>
+    <li class="list-group-item">@Html.DisplayFor(modelItem => components.Footprint)</li>
+    <li class="list-group-item">@Html.DisplayFor(modelItem => components.StockLevel)</li>
+    <li class="list-group-item">@Html.DisplayFor(modelItem => components.StockUser)</li>
 
-        </tr>
-        <tr>
-            <td>@Model.Name</td>
-            <td>@Model.Description</td>
-            <td>@Model.Category</td>
-            <td>@Model.StorageLocation</td>
-            <td>@Model.Footprint</td>
-            <td>@Model.StockLevel</td>
-            <td>@Model.StockUser</td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-    </table>
+</ul>
+

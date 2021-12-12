@@ -1,10 +1,36 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-
-<div class="text-center">
-    <h1 class="display-4">Welcome to the Electronic Component Inventory Management System</h1>
-    <br>
-    <br>
-    <h3>MENU is under construction...</h3>
+    <div class="text-center">
+        <h1 class="display-4">Welcome to the Electronic Component Inventory Management System</h1>
+        <br>
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
+                Menu
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="AddPartForm">Add Part</a>
+                <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="ComponentDB">Electronic Component Inventory</a>
+                <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div class="jumbotron">
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <center><input type="text" class="form-control form-control-lg" id="userName" placeholder="User Name"></center>
+                </div>
+                <br>
+                <div class="col-sm-12">
+                    <input type="password" class="form-control form-control-lg" id="password" placeholder="Password">
+                </div>
+                <br>
+                <div>
+                    <button type="submit" class="btn btn-primary">Login</button> <button type="submit" class="btn btn-success">Register</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
