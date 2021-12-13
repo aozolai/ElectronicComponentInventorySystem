@@ -7,6 +7,7 @@ namespace ElectronicComponentInventorySystem.UI.Models
 {
     public class ElectronicComponentsModel
     {
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public string Category { get; set; } //drop-down with values

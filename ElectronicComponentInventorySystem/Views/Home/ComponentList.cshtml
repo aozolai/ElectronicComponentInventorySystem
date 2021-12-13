@@ -1,0 +1,34 @@
+﻿@model IEnumerable<ElectronicComponentInventorySystem.UI.Models.ElectronicComponentsModel>
+@{
+    ViewData["Title"] = "Electronic Component Database";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Construction in progress... There will be a table with electronic components</h1>
+</div>
+<h2>Parts List</h2>
+<ul class="list-group list-group-horizontal">
+    <li class="list-group-item">Name</li>
+    <li class="list-group-item">Description</li>
+    <li class="list-group-item">Category</li>
+    <li class="list-group-item">Storage Location</li>
+    <li class="list-group-item">Footprint</li>
+    <li class="list-group-item">Stock Level</li>
+    <li class="list-group-item">Stock User</li>
+</ul>
+
+<ul class="list-group list-group-horizontal-sm">
+    @if (Model != null)
+    {@foreach (var components in Model)
+        {
+            <li class="list-group-item">@Html.DisplayFor(modelItem => components.Name)</li>
+            <li class="list-group-item">@Html.DisplayFor(modelItem => components.Description)</li>
+            <li class="list-group-item">@Html.DisplayFor(modelItem => components.Category)</li>
+            <li class="list-group-item">@Html.DisplayFor(modelItem => components.StorageLocation)</li>
+            <li class="list-group-item">@Html.DisplayFor(modelItem => components.Footprint)</li>
+            <li class="list-group-item">@Html.DisplayFor(modelItem => components.StockLevel)</li>
+            <li class="list-group-item">@Html.DisplayFor(modelItem => components.StockUser)</li>
+        }}
+
+</ul>
+

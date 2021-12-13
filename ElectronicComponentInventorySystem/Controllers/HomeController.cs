@@ -32,8 +32,9 @@ namespace ElectronicComponentInventorySystem.Controllers
             return View();
         }
 
-        public IActionResult ComponentDB()
+        public IActionResult ComponentList()
         {
+            var components = _operations.GetComponents();
             return View();
         }
 
