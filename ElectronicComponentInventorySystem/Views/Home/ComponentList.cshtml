@@ -3,32 +3,48 @@
     ViewData["Title"] = "Electronic Component Database";
 }
 
+
+
 <div class="text-center">
-    <h1 class="display-4">Construction in progress... There will be a table with electronic components</h1>
+    <h1 class="display-4">Electronic Component List</h1>
 </div>
+<br />
+<nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand">Electronic Component search by its Id or Name</a>
+    <form class="form-inline">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+</nav>
+<br />
 <h2>Parts List</h2>
-<ul class="list-group list-group-horizontal">
-    <li class="list-group-item">Name</li>
-    <li class="list-group-item">Description</li>
-    <li class="list-group-item">Category</li>
-    <li class="list-group-item">Storage Location</li>
-    <li class="list-group-item">Footprint</li>
-    <li class="list-group-item">Stock Level</li>
-    <li class="list-group-item">Stock User</li>
-</ul>
-
-<ul class="list-group list-group-horizontal-sm">
-    @if (Model != null)
-    {@foreach (var components in Model)
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Category</th>
+        <th>Storage Location</th>
+        <th>Footprint</th>
+        <th>Stock Level</th>
+        <th>Stock User</th>
+    </tr>
+    <tr>
+        @if (Model != null)
         {
-            <li class="list-group-item">@Html.DisplayFor(modelItem => components.Name)</li>
-            <li class="list-group-item">@Html.DisplayFor(modelItem => components.Description)</li>
-            <li class="list-group-item">@Html.DisplayFor(modelItem => components.Category)</li>
-            <li class="list-group-item">@Html.DisplayFor(modelItem => components.StorageLocation)</li>
-            <li class="list-group-item">@Html.DisplayFor(modelItem => components.Footprint)</li>
-            <li class="list-group-item">@Html.DisplayFor(modelItem => components.StockLevel)</li>
-            <li class="list-group-item">@Html.DisplayFor(modelItem => components.StockUser)</li>
-        }}
-
-</ul>
-
+            @foreach (var components in Model)
+            {
+        <th>@Html.DisplayFor(modelItem => components.Id)</th>
+                <th>@Html.DisplayFor(modelItem => components.Name)</th>
+                <th>@Html.DisplayFor(modelItem => components.Description)</th>
+                <th>@Html.DisplayFor(modelItem => components.Category)</th>
+                <th>@Html.DisplayFor(modelItem => components.StorageLocation)</th>
+                <th>@Html.DisplayFor(modelItem => components.Footprint)</th>
+                <th>@Html.DisplayFor(modelItem => components.StockLevel)</th>
+                <th>@Html.DisplayFor(modelItem => components.StockUser)</th>
+            }
+        }
+    </tr>
+</table>
+<br/>
+<button input id="UpdateBt" type="submit" class="btn btn-success">Update</button>  <button input id="DeleteBt" type="submit" class="btn btn-outline-danger">Delete</button>
