@@ -1,7 +1,7 @@
 ﻿@model ElectronicComponentInventorySystem.UI.Models.ElectronicComponentsModel
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Parts Edit Form";
 }
 
 <h1>Edit</h1>
@@ -12,43 +12,74 @@
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
             <div class="form-group">
-                <label asp-for="Id" class="control-label"></label>
-                <input asp-for="Id" class="form-control" />
-                <span asp-validation-for="Id" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
+                <label asp-for="Name" class="control-label">Electronic Component:</label>
                 <input asp-for="Name" class="form-control" />
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
+                <label asp-for="Description" class="control-label">Description:</label>
                 <input asp-for="Description" class="form-control" />
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Category" class="control-label"></label>
-                <input asp-for="Category" class="form-control" />
+                <label asp-for="Category" class="control-label">Category:</label>
+                <select class="form-control" asp-for="Category">
+                    <option value="" selected="selected"></option>
+                    <option value="Active Components">Active Components</option>
+                    <option value="Passive Component">Passive Components</option>
+                    <option value="Electromechanical Parts">Electromechanical Parts</option>
+                    <option value="Mechanical Parts">Mechanical Parts</option>
+                    <option value="Cables">Cables</option>
+                    <option value="Speakers and Buzzers">Speakers and Buzzers</option>
+                    <option value="V Modules">V Modules</option>
+                    <option value="W PC Accessories">W PC Accessories</option>
+                    <option value="X PCB Material">X PCB Material</option>
+                    <option value="Y Other Stuff">Y Other Stuff</option>
+                    <option value="Z Cooking">Z Cooking</option>
+                    <option value="Z Projects">Z Projects</option>
+                </select>
                 <span asp-validation-for="Category" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="StorageLocation" class="control-label"></label>
-                <input asp-for="StorageLocation" class="form-control" />
+                <label asp-for="StorageLocation" class="control-label">Storage Location:</label>
+                <select class="form-control" asp-for="StorageLocation">
+                    <option value="" selected="selected"></option>
+                    <option value="Box A">Box A</option>
+                    <option value="Box B">Box B</option>
+                </select>
                 <span asp-validation-for="StorageLocation" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Footprint" class="control-label"></label>
-                <input asp-for="Footprint" class="form-control" />
+                <label asp-for="Footprint" class="control-label">Footprint:</label>
+                <div class="input-group">
+                    <input type="radio" class="form-check-input" aria-label="Radio button for none value" name="radioFootprint" value="option1" />
+                    <div class="input-group-append">
+                        <span class="input-group-text">None</span>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <input type="radio" aria-label="Radio button for following text input" name="radioFootprint" value="option0" />
+                        </div>
+                    </div>
+                    <select class="col-7" id=" footprintSelect">
+                        <option value="" selected="selected"></option>
+                        <option value="THT">THT</option>
+                        <option value="SMD">SMD</option>
+                    </select>
+                </div>
                 <span asp-validation-for="Footprint" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="StockLevel" class="control-label"></label>
-                <input asp-for="StockLevel" class="form-control" />
+                <label asp-for="StockLevel" class="control-label">Stock Level:</label>
+                <input asp-for="StockLevel" class="form-control" type="number" min="0" max="100" />
                 <span asp-validation-for="StockLevel" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="StockUser" class="control-label"></label>
+                <label asp-for="StockUser" class="control-label">Stock User:</label>
                 <input asp-for="StockUser" class="form-control" />
                 <span asp-validation-for="StockUser" class="text-danger"></span>
             </div>
@@ -60,6 +91,6 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="ComponentList">Back to List</a>
 </div>
 
