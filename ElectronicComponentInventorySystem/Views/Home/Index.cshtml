@@ -1,35 +1,58 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/index.css" />
+</head>
     <div class="text-center">
         <h1 class="display-4">Welcome to the Electronic Component Inventory Management System</h1>
         <br>
-        <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
-                Menu
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="AddPartForm">Add Part</a>
-                <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="ComponentList">Electronic Component Inventory</a>
-                <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-            </div>
-        </div>
         <br>
         <br>
         <br>
-        <div class="jumbotron">
-            <div class="form-group">
-                <div class="col-sm-12">
-                    <center><input type="text" class="form-control form-control-lg" id="userName" placeholder="User Name"></center>
-                </div>
-                <br>
-                <div class="col-sm-12">
-                    <input type="password" class="form-control form-control-lg" id="password" placeholder="Password">
-                </div>
-                <br>
-                <div>
-                    <button type="submit" class="btn btn-primary">Login</button> <button type="submit" class="btn btn-success">Register</button>
-                </div>
-            </div>
-        </div>
-    </div>
+        <div class="login-wrap">
+	<div class="login-html">
+		<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Login</label>
+		<input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Register</label>
+		<div class="login-form">
+			<div class="sign-in-htm">
+				<div class="group">
+					<label for="user" class="label">Username</label>
+					<input id="user" type="text" class="input">
+				</div>
+				<div class="group">
+					<label for="pass" class="label">Password</label>
+					<input id="pass" type="password" class="input" data-type="password">
+				</div>
+				<div class="group">
+					<input id="check" type="checkbox" class="check" checked>
+					<label for="check"><span class="icon"></span> Keep me Signed in</label>
+				</div>
+				<div class="group">
+					<input type="submit" class="button" value="Login">
+				</div>
+			</div>
+			<div class="sign-up-htm">
+				<div class="group">
+					<label for="user" class="label">Username</label>
+					<input id="user" type="text" class="input">
+				</div>
+				<div class="group">
+					<label for="pass" class="label">Password</label>
+					<input id="pass" type="password" class="input" data-type="password">
+				</div>
+				<div class="group">
+					<label for="pass" class="label">Repeat Password</label>
+					<input id="pass" type="password" class="input" data-type="password">
+				</div>
+				<div class="group">
+					<input type="submit" class="button" value="Register">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
