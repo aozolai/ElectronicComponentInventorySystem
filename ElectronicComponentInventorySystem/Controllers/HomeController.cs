@@ -23,18 +23,21 @@ namespace ElectronicComponentInventorySystem.Controllers
             _operations = operations;
             _mapper = mapper;
         }
-
         public IActionResult Index()
-        {
-            var components = _operations.GetComponents();
-            return View(components);
-        }
-
-        public IActionResult AddPartForm()
         {
             return View();
         }
-
+        public IActionResult AddPartForm()
+        {
+            return View(new UI.Models.ElectronicComponentsModel());
+        }
+        [HttpPost]
+        public IActionResult ModifyViewData(UI.Models.ElectronicComponentsModel viewModel)
+        {
+            var component = _mapper.Map<ElectronicComponentInventSyst.Entity.ElectronicComponents>(viewModel);
+            _operations.AddPart(component);
+            return RedirectToAction("ComponentList");
+        }
         public IActionResult ComponentList()
         {
             var components = _operations.GetComponents();
@@ -44,28 +47,6 @@ namespace ElectronicComponentInventorySystem.Controllers
             };
             return View(viewModel);
         }
-
-        public IActionResult DeleteComponent(int id)
-        {
-            _operations.RemoveComponent(id);
-            return RedirectToAction("ComponentList");
-        }
-
-        public IActionResult Edit(int id)
-        {
-            var component = _operations.GetComponentById(id);
-            var viewModel = _mapper.Map<UI.Models.ElectronicComponentsModel>(component);
-            return View(viewModel);
-        }
-
-        [HttpPost]
-        public IActionResult Edit(UI.Models.ElectronicComponentsModel viewModel)
-        {
-            var component = _mapper.Map<ElectronicComponentInventSyst.Entity.ElectronicComponents>(viewModel);
-            _operations.UpdateComponent(component);
-            return View(viewModel);
-        }
-
         [HttpPost]
         public IActionResult ComponentList(UI.Models.FilterViewModel viewModel)
         {
@@ -81,17 +62,28 @@ namespace ElectronicComponentInventorySystem.Controllers
             viewModel.FoundComponents = _mapper.Map<IEnumerable<UI.Models.ElectronicComponentsModel>>(components);
             return View(viewModel);
         }
-
+        public IActionResult DeleteComponent(int id)
+        {
+            _operations.RemoveComponent(id);
+            return RedirectToAction("ComponentList");
+        }
+        public IActionResult Edit(int id)
+        {
+            var component = _operations.GetComponentById(id);
+            var viewModel = _mapper.Map<UI.Models.ElectronicComponentsModel>(component);
+            return View(viewModel);
+        }
+        [HttpPost]
+        public IActionResult Edit(UI.Models.ElectronicComponentsModel viewModel)
+        {
+            var component = _mapper.Map<ElectronicComponentInventSyst.Entity.ElectronicComponents>(viewModel);
+            _operations.UpdateComponent(component);
+            return View(viewModel);
+        }
         public IActionResult Privacy()
         {
             return View();
         }
-
-        public IActionResult ModifyViewData(string name, string description, string category, string storageLocation, string footprint, int stockLevel, string stockUser)
-        {
-            return RedirectToAction("AddPartForm");
-        }
-
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
