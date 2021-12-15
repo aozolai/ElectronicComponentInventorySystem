@@ -27,6 +27,11 @@ namespace ElectronicComponentInventorySystem
         {
             services.AddDbContext<ElectronicComponentInventoryDbContext>(); //pievienojām datubāzi
             services.AddScoped<DbOperations>(); // pievienojam DB operācijas
+            services.AddAutoMapper(options =>
+            {
+                options.CreateMap<ElectronicComponentInventSyst.Entity.ElectronicComponents, UI.Models.ElectronicComponentsModel>();
+                options.CreateMap<UI.Models.ElectronicComponentsModel, ElectronicComponentInventSyst.Entity.ElectronicComponents>();
+            });
             services.AddControllersWithViews();
         }
 

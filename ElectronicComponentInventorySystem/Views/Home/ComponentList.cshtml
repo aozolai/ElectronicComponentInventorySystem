@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ElectronicComponentInventorySystem.UI.Models.ElectronicComponentsModel>
+﻿@model ElectronicComponentInventorySystem.UI.Models.FilterViewModel
 @{
     ViewData["Title"] = "Electronic Component Database";
 }
@@ -10,31 +10,35 @@
 </div>
 <br />
 <nav class="navbar navbar-light bg-light">
-    <a class="navbar-brand">Electronic Component search by its Id or Name</a>
-    <form class="form-inline">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+    <a class="navbar-brand">Electronic Component search by Electronic Components Name</a>
+    <form class="form-inline" method="post">
+        <input class="form-control mr-sm-2" asp-for="Search" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
 </nav>
 <br />
 <h2>Parts List</h2>
-<table>
-    <tr>
-        <th>Id</th>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Category</th>
-        <th>Storage Location</th>
-        <th>Footprint</th>
-        <th>Stock Level</th>
-        <th>Stock User</th>
-    </tr>
-    <tr>
-        @if (Model != null)
-        {
-            @foreach (var components in Model)
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Category</th>
+            <th>Storage Location</th>
+            <th>Footprint</th>
+            <th>Stock Level</th>
+            <th>Stock User</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    @if (Model.FoundComponents != null)
+    {
+        <tbody>
+            @foreach (var components in Model.FoundComponents)
             {
-                <th>@Html.DisplayFor(modelItem => components.Id)</th>
+        <th>@Html.DisplayFor(modelItem => components.Id)</th>
                 <th>@Html.DisplayFor(modelItem => components.Name)</th>
                 <th>@Html.DisplayFor(modelItem => components.Description)</th>
                 <th>@Html.DisplayFor(modelItem => components.Category)</th>
@@ -43,8 +47,8 @@
                 <th>@Html.DisplayFor(modelItem => components.StockLevel)</th>
                 <th>@Html.DisplayFor(modelItem => components.StockUser)</th>
             }
-        }
-    </tr>
+        </tbody>
+    }
 </table>
-<br/>
-<button input id="UpdateBt" type="submit" class="btn btn-success">Update</button>  <button input id="DeleteBt" type="submit" class="btn btn-outline-danger">Delete</button>
+<br />
+

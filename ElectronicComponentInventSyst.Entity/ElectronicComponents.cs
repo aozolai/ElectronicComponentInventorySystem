@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace ElectronicComponentInventSyst.BLL
+namespace ElectronicComponentInventSyst.Entity
 {
     public class ElectronicComponents
     {
