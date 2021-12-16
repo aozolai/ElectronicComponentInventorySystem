@@ -61,7 +61,7 @@ html {
 body {
     /* Margin bottom by footer height */
     margin-bottom: 60px;
-    background-image: radial-gradient(#03254c, #187bcd, #f2f2f3);
+    background-color: white;
 }
 .footer {
   position: absolute;

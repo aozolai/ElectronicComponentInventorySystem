@@ -4,6 +4,13 @@
     ViewData["Title"] = "Home Page";
 }
 
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/addPartForm.css" />
+</head>
 <div class="text-center">
     <br>
     <h3>Add Part</h3>
@@ -11,23 +18,23 @@
 </div>
 @using (Html.BeginForm("ModifyViewData", "Home", FormMethod.Post))
 {
-    <div class="jumbotron">
+    <div class="mt-4 p-5 bg-primary text-white rounded">
         <div class="form-group row">
-            <label asp-for="Name" class="col-sm-2 col-form-label">Electronic Component:</label>
+            <label asp-for="Name" class="col-md-2 col-form-label">Component:</label>
             <div class="col-sm-10">
-                <input asp-for="Name" type="text" class="form-control" required>
+                <input asp-for="Name" type="text" class="input-group" required>
             </div>
         </div>
         <div class="form-group row">
-            <label asp-for="Description" class="col-sm-2 col-form-label">Description:</label>
+            <label asp-for="Description" class="col-md-2 col-form-label">Description:</label>
             <div class="col-sm-10">
-                <input asp-for="Description" type="text" class="form-control">
+                <input asp-for="Description" type="text" class="input-group">
             </div>
         </div>
         <div class="form-group row">
-            <label asp-for="Category" class="col-sm-2 col-form-label">Category:</label>
+            <label asp-for="Category" class="col-md-2 col-form-label">Category:</label>
             <div class="col-sm-10">
-                <select asp-for="Category" class="form-control">
+                <select asp-for="Category" class="input-group">
                     <option value="" selected="selected"></option>
                     <option value="Active Components">Active Components</option>
                     <option value="Passive Components">Passive Components</option>
@@ -45,9 +52,9 @@
             </div>
         </div>
         <div class="form-group row">
-            <label asp-for="StorageLocation" class="col-sm-2 col-form-label">Storage Location:</label>
-            <div class="col-sm-10">
-                <select asp-for="StorageLocation" class="form-control">
+            <label asp-for="StorageLocation" class="col-md-2 col-form-label">Storage Location:</label>
+            <div class="col-md-10">
+                <select asp-for="StorageLocation" class="input-group" required>
                     <option value="" selected="selected"></option>
                     <option value="Box A">Box A</option>
                     <option value="Box B">Box B</option>
@@ -55,39 +62,63 @@
             </div>
         </div>
         <div class="form-group row">
-            <label asp-for="Footprint" class="col-sm-2 col-form-label">Footprint:</label>
-            <div class="form-row">
-                <div class="col">
-                    <input asp-for="Footprint" class="form-check-input" type="radio" name="radioFootprint" value="option1" />
-                    <label class="form-check-label" for="exampleRadios2">
+            <label asp-for="Footprint" class="col-md-2 col-form-label">Footprint:</label>
+            <div class="row">
+                <div class="col-md">
+                    <input asp-for="Footprint" type="radio" name="radioFootprint" value="option1" />
+                    <label for="exampleRadios2">
                         None
                     </label>
                 </div>
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <div class="input-group-text">
-                            <input asp-for="Footprint" type="radio" aria-label="Radio button for following text input" name="radioFootprint" value="option0" />
+                <div class="col-md">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">
+                                <input asp-for="Footprint" type="radio" aria-label="Radio button for following text input" name="radioFootprint" value="option0" />
+                            </div>
                         </div>
+                        <select asp-for="Footprint" class="col">
+                            <option value="" selected="selected"></option>
+                            <option value="THT">THT</option>
+                            <option value="SMD">SMD</option>
+                        </select>
                     </div>
-                    <select asp-for="Footprint" class="col-7">
-                        <option value="" selected="selected"></option>
-                        <option value="THT">THT</option>
-                        <option value="SMD">SMD</option>
-                    </select>
                 </div>
             </div>
         </div>
         <div class="form-group row">
-            <label asp-for="StockLevel" class="col-sm-2 col-form-label">Stock Level:</label>
+            <label asp-for="StockLevel" class="col-md-2 col-form-label">Stock Level:</label>
             <div class="col-sm-3">
-                <input asp-for="StockLevel" type="number" min="0" max="100" class="form-control">
+                <input asp-for="StockLevel" type="number" min="0" max="100" class="input-group">
             </div>
-            <label asp-for="StockUser" class="col-sm-2 col-form-label">Stock User:</label>
+            <label asp-for="StockUser" class="col-md-2 col-form-label">Stock User:</label>
             <div class="col-sm-5">
-                <input asp-for="StockUser" type="text" class="form-control" placeholder="admin">
+                <input asp-for="StockUser" type="text" class="input-group" placeholder="admin">
             </div>
         </div>
     </div>
+    <br>
+    <h5>Add an Additional</h5>
+    <button class="accordion">Category</button>
+    <div class="panel">
+        <div class="col-md">
+            <input asp-for="Category" type="text" class="input-group">
+        </div>
+    </div>
+    <button class="accordion">Storage Location</button>
+    <div class="panel">
+        <div class="col-md">
+            <input asp-for="StorageLocation" type="text" class="input-group" required>
+        </div>
+    </div>
+    <button class="accordion">Footprint</button>
+    <div class="panel">
+        <div class="col-md">
+            <input asp-for="Footprint" type="text" class="input-group">
+        </div>
+    </div>
+    <br>
     <button input id="SaveButtonId" type="submit" class="btn btn-success">Save</button>
     <button input id="CancelButtonId" type="button" class="btn btn-outline-secondary">Cancel</button>
 }
+
