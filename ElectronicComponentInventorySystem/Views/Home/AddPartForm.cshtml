@@ -18,7 +18,7 @@
 </div>
 @using (Html.BeginForm("ModifyViewData", "Home", FormMethod.Post))
 {
-    <div class="mt-4 p-5 bg-primary text-white rounded">
+    <div class="mt-4 p-5">
         <div class="form-group row">
             <label asp-for="Name" class="col-md-2 col-form-label">Component:</label>
             <div class="col-sm-10">
@@ -53,7 +53,7 @@
         </div>
         <div class="form-group row">
             <label asp-for="StorageLocation" class="col-md-2 col-form-label">Storage Location:</label>
-            <div class="col-md-10">
+            <div class="col-sm-10">
                 <select asp-for="StorageLocation" class="input-group" required>
                     <option value="" selected="selected"></option>
                     <option value="Box A">Box A</option>
@@ -65,8 +65,9 @@
             <label asp-for="Footprint" class="col-md-2 col-form-label">Footprint:</label>
             <div class="row">
                 <div class="col-md">
+                    &nbsp;&nbsp;&nbsp;
                     <input asp-for="Footprint" type="radio" name="radioFootprint" value="option1" />
-                    <label for="exampleRadios2">
+                    <label for="radioFootprint">
                         None
                     </label>
                 </div>
@@ -86,35 +87,49 @@
                 </div>
             </div>
         </div>
-        <div class="form-group row">
-            <label asp-for="StockLevel" class="col-md-2 col-form-label">Stock Level:</label>
-            <div class="col-sm-3">
-                <input asp-for="StockLevel" type="number" min="0" max="100" class="input-group">
-            </div>
-            <label asp-for="StockUser" class="col-md-2 col-form-label">Stock User:</label>
-            <div class="col-sm-5">
-                <input asp-for="StockUser" type="text" class="input-group" placeholder="admin">
+            <div class="form-group row">
+                <label asp-for="StockLevel" class="col-md-2 col-form-label">Stock Level:</label>
+                <div class="col-sm-3">
+                    <input asp-for="StockLevel" type="number" min="0" max="100" class="input-group">
+                </div>
+                <label asp-for="StockUser" class="col-md-2 col-form-label">Stock User:</label>
+                <div class="col-sm-5">
+                    <input asp-for="StockUser" type="text" class="input-group" placeholder="admin">
+                </div>
             </div>
         </div>
-    </div>
     <br>
     <h5>Add an Additional</h5>
     <button class="accordion">Category</button>
     <div class="panel">
         <div class="col-md">
-            <input asp-for="Category" type="text" class="input-group">
+            @using (Html.BeginForm("ModifyViewData", "Home", FormMethod.Post))
+            {
+                <input asp-for="Category" type="text" class="input-group">
+                <button input id="SaveButtonId" type="submit" class="btn btn-success">Save</button>
+            }
+
         </div>
     </div>
     <button class="accordion">Storage Location</button>
     <div class="panel">
         <div class="col-md">
-            <input asp-for="StorageLocation" type="text" class="input-group" required>
+            @using (Html.BeginForm("ModifyViewData", "Home", FormMethod.Post))
+            {
+                <input asp-for="StorageLocation" type="text" class="input-group" required>
+                <button input id="SaveButtonId" type="submit" class="btn btn-success">Save</button>
+            }
+
         </div>
     </div>
     <button class="accordion">Footprint</button>
     <div class="panel">
         <div class="col-md">
-            <input asp-for="Footprint" type="text" class="input-group">
+            @using (Html.BeginForm("ModifyViewData", "Home", FormMethod.Post))
+            {
+                <input asp-for="Footprint" type="text" class="input-group">
+                <button input id="SaveButtonId" type="submit" class="btn btn-success">Save</button>
+            }
         </div>
     </div>
     <br>

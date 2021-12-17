@@ -15,17 +15,17 @@
             <input type="hidden" asp-for="Id" />
             <div class="form-group">
                 <label asp-for="Name" class="control-label">Electronic Component:</label>
-                <input asp-for="Name" class="form-control" />
+                <input asp-for="Name" class="input-group" />
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Description" class="control-label">Description:</label>
-                <input asp-for="Description" class="form-control" />
+                <input asp-for="Description" class="input-group" />
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Category" class="control-label">Category:</label>
-                <select class="form-control" asp-for="Category">
+                <select class="input-group" asp-for="Category">
                     <option value="" selected="selected"></option>
                     <option value="Active Components">Active Components</option>
                     <option value="Passive Component">Passive Components</option>
@@ -44,7 +44,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="StorageLocation" class="control-label">Storage Location:</label>
-                <select class="form-control" asp-for="StorageLocation">
+                <select class="input-group" asp-for="StorageLocation">
                     <option value="" selected="selected"></option>
                     <option value="Box A">Box A</option>
                     <option value="Box B">Box B</option>
@@ -54,10 +54,11 @@
             <div class="form-group">
                 <label asp-for="Footprint" class="control-label">Footprint:</label>
                 <div class="form-group">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <input type="radio" class="form-check-input" aria-label="Radio button for none value" name="radioFootprint" value="option1" />
-                    <div>
+                    <label for="radioFootprint">
                         None
-                    </div>
+                    </label>
                 </div>
                 <div class="input-group">
                     <div class="input-group-prepend">
@@ -75,12 +76,12 @@
             </div>
             <div class="form-group">
                 <label asp-for="StockLevel" class="control-label">Stock Level:</label>
-                <input asp-for="StockLevel" class="form-control" type="number" min="0" max="100" />
+                <input asp-for="StockLevel" class="input-group" type="number" min="0" max="100" />
                 <span asp-validation-for="StockLevel" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="StockUser" class="control-label">Stock User:</label>
-                <input asp-for="StockUser" class="form-control" />
+                <input asp-for="StockUser" class="input-group" />
                 <span asp-validation-for="StockUser" class="text-danger"></span>
             </div>
             <div class="form-group">
