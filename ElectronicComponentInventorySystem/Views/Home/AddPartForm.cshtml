@@ -18,7 +18,7 @@
 </div>
 @using (Html.BeginForm("ModifyViewData", "Home", FormMethod.Post))
 {
-<div class="mt-4 p-5">
+<div class="mt-4 p-5 bg-light text-dark">
     <div class="form-group row">
         <label asp-for="Name" class="col-md-2 col-form-label">Component:</label>
         <div class="col-sm-10">
@@ -48,29 +48,29 @@
         </div>
     </div>
     <div class="form-group row">
-            <label asp-for="FootprintId" class="col-md-2 col-form-label">Footprint:</label>
-            <div class="row">
-                <div class="col-md">
-                    &nbsp;&nbsp;&nbsp;
-                    <input asp-for="FootprintId" type="radio" name="radioFootprint" value="option1" />
-                    <label for="radioFootprint">
-                        None
-                    </label>
-                </div>
-                <div class="col-md">
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <div class="input-group-text">
-                                <input asp-for="FootprintId" type="radio" aria-label="Radio button for following text input" name="radioFootprint" value="option0" />
-                            </div>
+        <label asp-for="FootprintId" class="col-md-2 col-form-label">Footprint:</label>
+        <div class="row">
+            <div class="col-md">
+                &nbsp;&nbsp;&nbsp;
+                <input asp-for="FootprintId" type="radio" name="radioFootprint" value="option1" />
+                <label for="radioFootprint">
+                    None
+                </label>
+            </div>
+            <div class="col-md">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <input asp-for="FootprintId" type="radio" aria-label="Radio button for following text input" name="radioFootprint" value="option0" />
                         </div>
-                        <select asp-for="FootprintId" asp-items="Model.Footprints.Select(x => new SelectListItem(x.Name, x.Id.ToString()))" class="col">
-                            <option value="" selected="selected"></option>
-                        </select>
                     </div>
+                    <select asp-for="FootprintId" asp-items="Model.Footprints.Select(x => new SelectListItem(x.Name, x.Id.ToString()))" class="col">
+                        <option value="" selected="selected"></option>
+                    </select>
                 </div>
             </div>
         </div>
+    </div>
     <div class="form-group row">
         <label asp-for="StockLevel" class="col-md-2 col-form-label">Stock Level:</label>
         <div class="col-sm-3">
@@ -88,7 +88,7 @@
     <br>
     <br>
     <h5>Add an Additional</h5>
-    <button class="accordion">Category</button>
+    <button class="accordion bg-light text-dark">Category</button>
     <div class="panel">
         <div class="col-md">
             @using (Html.BeginForm("AddNewCategory", "Clasificator", FormMethod.Post))
@@ -98,7 +98,7 @@
             }
         </div>
     </div>
-    <button class="accordion">Storage Location</button>
+    <button class="accordion bg-light text-dark">Storage Location</button>
     <div class="panel">
         <div class="col-md">
             @using (Html.BeginForm("AddNewStorageLocation", "Clasificator", FormMethod.Post))
@@ -108,7 +108,7 @@
             }
         </div>
     </div>
-    <button class="accordion">Footprint</button>
+    <button class="accordion bg-light text-dark">Footprint</button>
     <div class="panel">
         <div class="col-md">
             @using (Html.BeginForm("AddNewFootprint", "Clasificator", FormMethod.Post))
