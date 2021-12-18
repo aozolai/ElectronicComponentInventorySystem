@@ -31,6 +31,12 @@ namespace ElectronicComponentInventorySystem
             {
                 options.CreateMap<ElectronicComponentInventSyst.Entity.ElectronicComponents, UI.Models.ElectronicComponentsModel>();
                 options.CreateMap<UI.Models.ElectronicComponentsModel, ElectronicComponentInventSyst.Entity.ElectronicComponents>();
+                options.CreateMap<ElectronicComponentInventSyst.Entity.Category, UI.Models.CategoryModel>();
+                options.CreateMap<UI.Models.CategoryModel, ElectronicComponentInventSyst.Entity.Category>();
+                options.CreateMap<ElectronicComponentInventSyst.Entity.Footprint, UI.Models.FootprintModel>();
+                options.CreateMap<UI.Models.FootprintModel, ElectronicComponentInventSyst.Entity.Footprint>();
+                options.CreateMap<ElectronicComponentInventSyst.Entity.StoragaLocation, UI.Models.StorageLocationModel>();
+                options.CreateMap<UI.Models.StorageLocationModel, ElectronicComponentInventSyst.Entity.StoragaLocation>();
             });
             services.AddControllersWithViews();
         }
@@ -61,7 +67,7 @@ namespace ElectronicComponentInventorySystem
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
-            
+
         }
     }
 }

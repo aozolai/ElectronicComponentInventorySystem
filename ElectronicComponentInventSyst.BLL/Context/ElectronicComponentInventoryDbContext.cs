@@ -18,6 +18,9 @@ namespace ElectronicComponentInventSyst.BLL.Context
         }
 
         public DbSet<ElectronicComponents> ElectronicComponents { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Footprint> Footprints { get; set; }
+        public DbSet<StoragaLocation> StoragaLocations { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) =>
             optionsBuilder.UseSqlServer(connectionString);
     }

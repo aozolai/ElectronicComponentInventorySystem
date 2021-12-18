@@ -46,5 +46,32 @@ namespace ElectronicComponentInventSyst.BLL
                 _context.SaveChanges();
             }
         }
+        public IEnumerable<Category> GetCategories()
+        {
+            return _context.Categories;
+        }
+        public void AddCategory(Category category)
+        {
+            _context.Categories.Add(category);
+            _context.SaveChanges();
+        }
+        public IEnumerable<Footprint> GetFootprints()
+        {
+            return _context.Footprints;
+        }
+        public void AddFootprint(Footprint footprint)
+        {
+            _context.Footprints.Add(footprint);
+            _context.SaveChanges();
+        }
+        public IEnumerable<StoragaLocation> GetStoragaLocations()
+        {
+            return _context.StoragaLocations;
+        }
+        public void AddStorageLocation(StoragaLocation storagaLocation)
+        {
+            _context.StoragaLocations.Add(storagaLocation);
+            _context.SaveChanges();
+        }
     }
 }

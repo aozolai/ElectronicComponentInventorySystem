@@ -87,53 +87,52 @@
                 </div>
             </div>
         </div>
-            <div class="form-group row">
-                <label asp-for="StockLevel" class="col-md-2 col-form-label">Stock Level:</label>
-                <div class="col-sm-3">
-                    <input asp-for="StockLevel" type="number" min="0" max="100" class="input-group">
-                </div>
-                <label asp-for="StockUser" class="col-md-2 col-form-label">Stock User:</label>
-                <div class="col-sm-5">
-                    <input asp-for="StockUser" type="text" class="input-group" placeholder="admin">
-                </div>
+        <div class="form-group row">
+            <label asp-for="StockLevel" class="col-md-2 col-form-label">Stock Level:</label>
+            <div class="col-sm-3">
+                <input asp-for="StockLevel" type="number" min="0" max="100" class="input-group">
+            </div>
+            <label asp-for="StockUser" class="col-md-2 col-form-label">Stock User:</label>
+            <div class="col-sm-5">
+                <input asp-for="StockUser" type="text" class="input-group" placeholder="admin">
             </div>
         </div>
+    </div>
+    <button id="SaveButtonId" type="submit" class="btn btn-success">Save</button>
+    <button id="CancelButtonId" type="button" class="btn btn-outline-secondary">Cancel</button>
+}
+    <br>
     <br>
     <h5>Add an Additional</h5>
     <button class="accordion">Category</button>
     <div class="panel">
         <div class="col-md">
-            @using (Html.BeginForm("ModifyViewData", "Home", FormMethod.Post))
+            @using (Html.BeginForm("AddNewCategory", "Clasificator", FormMethod.Post))
             {
-                <input asp-for="Category" type="text" class="input-group">
-                <button input id="SaveButtonId" type="submit" class="btn btn-success">Save</button>
+                <input name="Name" type="text" class="input-group">
+                <button type="submit" class="btn btn-success">Save</button>
             }
-
         </div>
     </div>
     <button class="accordion">Storage Location</button>
     <div class="panel">
         <div class="col-md">
-            @using (Html.BeginForm("ModifyViewData", "Home", FormMethod.Post))
+            @using (Html.BeginForm("AddNewStorageLocation", "Clasificator", FormMethod.Post))
             {
-                <input asp-for="StorageLocation" type="text" class="input-group" required>
-                <button input id="SaveButtonId" type="submit" class="btn btn-success">Save</button>
+                <input name="Name" type="text" class="input-group" required>
+                <button type="submit" class="btn btn-success">Save</button>
             }
-
         </div>
     </div>
     <button class="accordion">Footprint</button>
     <div class="panel">
         <div class="col-md">
-            @using (Html.BeginForm("ModifyViewData", "Home", FormMethod.Post))
+            @using (Html.BeginForm("AddNewFootprint", "Clasificator", FormMethod.Post))
             {
-                <input asp-for="Footprint" type="text" class="input-group">
-                <button input id="SaveButtonId" type="submit" class="btn btn-success">Save</button>
+                <input name="Name" type="text" class="input-group">
+                <button type="submit" class="btn btn-success">Save</button>
             }
         </div>
     </div>
-    <br>
-    <button input id="SaveButtonId" type="submit" class="btn btn-success">Save</button>
-    <button input id="CancelButtonId" type="button" class="btn btn-outline-secondary">Cancel</button>
-}
+
 
