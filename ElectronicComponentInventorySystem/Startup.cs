@@ -29,8 +29,13 @@ namespace ElectronicComponentInventorySystem
             services.AddScoped<DbOperations>(); // pievienojam DB operācijas
             services.AddAutoMapper(options =>
             {
-                options.CreateMap<ElectronicComponentInventSyst.Entity.ElectronicComponents, UI.Models.ElectronicComponentsModel>();
-                options.CreateMap<UI.Models.ElectronicComponentsModel, ElectronicComponentInventSyst.Entity.ElectronicComponents>();
+                options.CreateMap<ElectronicComponentInventSyst.Entity.ElectronicComponents, UI.Models.ElectronicComponentsModel>()
+                    .ForMember(x => x.CategoryName, opt => opt.MapFrom(x => x.Category.Name))
+                    .ForMember(x => x.StorageLocationName, opt => opt.MapFrom(x => x.StorageLocation.Name))
+                    .ForMember(x => x.FootprintName, opt => opt.MapFrom(x => x.Footprint.Name));
+                options.CreateMap<UI.Models.ElectronicComponentsModel, ElectronicComponentInventSyst.Entity.ElectronicComponents>();                   
+
+
                 options.CreateMap<ElectronicComponentInventSyst.Entity.Category, UI.Models.CategoryModel>();
                 options.CreateMap<UI.Models.CategoryModel, ElectronicComponentInventSyst.Entity.Category>();
                 options.CreateMap<ElectronicComponentInventSyst.Entity.Footprint, UI.Models.FootprintModel>();

@@ -29,7 +29,11 @@ namespace ElectronicComponentInventorySystem.Controllers
         }
         public IActionResult AddPartForm()
         {
-            return View(new UI.Models.ElectronicComponentsModel());
+            var viewModel = new UI.Models.ElectronicComponentsModel();
+            viewModel.Categories = _mapper.Map<IEnumerable<UI.Models.CategoryModel>>(_operations.GetCategories()).ToList();
+            viewModel.Footprints = _mapper.Map<IEnumerable<UI.Models.FootprintModel>>(_operations.GetFootprints()).ToList();
+            viewModel.StorageLocations = _mapper.Map<IEnumerable<UI.Models.StorageLocationModel>>(_operations.GetStoragaLocations()).ToList();
+            return View(viewModel);
         }
         [HttpPost]
         public IActionResult ModifyViewData(UI.Models.ElectronicComponentsModel viewModel)
@@ -71,6 +75,9 @@ namespace ElectronicComponentInventorySystem.Controllers
         {
             var component = _operations.GetComponentById(id);
             var viewModel = _mapper.Map<UI.Models.ElectronicComponentsModel>(component);
+            viewModel.Categories = _mapper.Map<IEnumerable<UI.Models.CategoryModel>>(_operations.GetCategories()).ToList();
+            viewModel.Footprints = _mapper.Map<IEnumerable<UI.Models.FootprintModel>>(_operations.GetFootprints()).ToList();
+            viewModel.StorageLocations = _mapper.Map<IEnumerable<UI.Models.StorageLocationModel>>(_operations.GetStoragaLocations()).ToList();
             return View(viewModel);
         }
         [HttpPost]
@@ -78,7 +85,7 @@ namespace ElectronicComponentInventorySystem.Controllers
         {
             var component = _mapper.Map<ElectronicComponentInventSyst.Entity.ElectronicComponents>(viewModel);
             _operations.UpdateComponent(component);
-            return View(viewModel);
+            return RedirectToAction("ComponentList");
         }
         public IActionResult Privacy()
         {

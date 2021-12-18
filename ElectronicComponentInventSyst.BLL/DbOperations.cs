@@ -1,5 +1,6 @@
 ﻿using ElectronicComponentInventSyst.BLL.Context;
 using ElectronicComponentInventSyst.Entity;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,7 +23,7 @@ namespace ElectronicComponentInventSyst.BLL
         }
         public IEnumerable<ElectronicComponents> GetComponents()
         {
-            return _context.ElectronicComponents;
+            return _context.ElectronicComponents.Include(x => x.Category).Include(x => x.StorageLocation).Include(x => x.Footprint);
         }
         public ElectronicComponents GetComponentById(int id)
         {

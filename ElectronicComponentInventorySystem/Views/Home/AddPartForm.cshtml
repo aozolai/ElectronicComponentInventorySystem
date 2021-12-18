@@ -18,55 +18,41 @@
 </div>
 @using (Html.BeginForm("ModifyViewData", "Home", FormMethod.Post))
 {
-    <div class="mt-4 p-5">
-        <div class="form-group row">
-            <label asp-for="Name" class="col-md-2 col-form-label">Component:</label>
-            <div class="col-sm-10">
-                <input asp-for="Name" type="text" class="input-group" required>
-            </div>
+<div class="mt-4 p-5">
+    <div class="form-group row">
+        <label asp-for="Name" class="col-md-2 col-form-label">Component:</label>
+        <div class="col-sm-10">
+            <input asp-for="Name" type="text" class="input-group" required>
         </div>
-        <div class="form-group row">
-            <label asp-for="Description" class="col-md-2 col-form-label">Description:</label>
-            <div class="col-sm-10">
-                <input asp-for="Description" type="text" class="input-group">
-            </div>
+    </div>
+    <div class="form-group row">
+        <label asp-for="Description" class="col-md-2 col-form-label">Description:</label>
+        <div class="col-sm-10">
+            <input asp-for="Description" type="text" class="input-group">
         </div>
-        <div class="form-group row">
-            <label asp-for="Category" class="col-md-2 col-form-label">Category:</label>
-            <div class="col-sm-10">
-                <select asp-for="Category" class="input-group">
-                    <option value="" selected="selected"></option>
-                    <option value="Active Components">Active Components</option>
-                    <option value="Passive Components">Passive Components</option>
-                    <option value="Electromechanical Parts">Electromechanical Parts</option>
-                    <option value="Mechanical Parts">Mechanical Parts</option>
-                    <option value="Cables">Cables</option>
-                    <option value="Speakers and Buzzers">Speakers and Buzzers</option>
-                    <option value="V Modules">V Modules</option>
-                    <option value="W PC Accessories">W PC Accessories</option>
-                    <option value="X PCB Material">X PCB Material</option>
-                    <option value="Y Other Stuff">Y Other Stuff</option>
-                    <option value="Z Cooking">Z Cooking</option>
-                    <option value="Z Projects">Z Projects</option>
-                </select>
-            </div>
+    </div>
+    <div class="form-group row">
+        <label asp-for="CategoryId" class="col-md-2 col-form-label">Category:</label>
+        <div class="col-sm-10">
+            <select asp-for="CategoryId" asp-items="Model.Categories.Select(x => new SelectListItem(x.Name, x.Id.ToString()))" class="input-group">
+                <option value="" selected="selected"></option>
+            </select>
         </div>
-        <div class="form-group row">
-            <label asp-for="StorageLocation" class="col-md-2 col-form-label">Storage Location:</label>
-            <div class="col-sm-10">
-                <select asp-for="StorageLocation" class="input-group" required>
-                    <option value="" selected="selected"></option>
-                    <option value="Box A">Box A</option>
-                    <option value="Box B">Box B</option>
-                </select>
-            </div>
+    </div>
+    <div class="form-group row">
+        <label asp-for="StorageLocationId" class="col-md-2 col-form-label">Storage Location:</label>
+        <div class="col-sm-10">
+            <select asp-for="StorageLocationId" asp-items="Model.StorageLocations.Select(x => new SelectListItem(x.Name, x.Id.ToString()))" class="input-group" required>
+                <option value="" selected="selected"></option>
+            </select>
         </div>
-        <div class="form-group row">
-            <label asp-for="Footprint" class="col-md-2 col-form-label">Footprint:</label>
+    </div>
+    <div class="form-group row">
+            <label asp-for="FootprintId" class="col-md-2 col-form-label">Footprint:</label>
             <div class="row">
                 <div class="col-md">
                     &nbsp;&nbsp;&nbsp;
-                    <input asp-for="Footprint" type="radio" name="radioFootprint" value="option1" />
+                    <input asp-for="FootprintId" type="radio" name="radioFootprint" value="option1" />
                     <label for="radioFootprint">
                         None
                     </label>
@@ -75,29 +61,27 @@
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <div class="input-group-text">
-                                <input asp-for="Footprint" type="radio" aria-label="Radio button for following text input" name="radioFootprint" value="option0" />
+                                <input asp-for="FootprintId" type="radio" aria-label="Radio button for following text input" name="radioFootprint" value="option0" />
                             </div>
                         </div>
-                        <select asp-for="Footprint" class="col">
+                        <select asp-for="FootprintId" asp-items="Model.Footprints.Select(x => new SelectListItem(x.Name, x.Id.ToString()))" class="col">
                             <option value="" selected="selected"></option>
-                            <option value="THT">THT</option>
-                            <option value="SMD">SMD</option>
                         </select>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="form-group row">
-            <label asp-for="StockLevel" class="col-md-2 col-form-label">Stock Level:</label>
-            <div class="col-sm-3">
-                <input asp-for="StockLevel" type="number" min="0" max="100" class="input-group">
-            </div>
-            <label asp-for="StockUser" class="col-md-2 col-form-label">Stock User:</label>
-            <div class="col-sm-5">
-                <input asp-for="StockUser" type="text" class="input-group" placeholder="admin">
-            </div>
+    <div class="form-group row">
+        <label asp-for="StockLevel" class="col-md-2 col-form-label">Stock Level:</label>
+        <div class="col-sm-3">
+            <input asp-for="StockLevel" type="number" min="0" max="100" class="input-group">
+        </div>
+        <label asp-for="StockUser" class="col-md-2 col-form-label">Stock User:</label>
+        <div class="col-sm-5">
+            <input asp-for="StockUser" type="text" class="input-group" placeholder="admin">
         </div>
     </div>
+</div>
     <button id="SaveButtonId" type="submit" class="btn btn-success">Save</button>
     <button id="CancelButtonId" type="button" class="btn btn-outline-secondary">Cancel</button>
 }

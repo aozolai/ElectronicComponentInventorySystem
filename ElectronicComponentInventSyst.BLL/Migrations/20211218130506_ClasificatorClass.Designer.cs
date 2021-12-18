@@ -4,14 +4,16 @@ using ElectronicComponentInventSyst.BLL.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ElectronicComponentInventSyst.BLL.Migrations
 {
     [DbContext(typeof(ElectronicComponentInventoryDbContext))]
-    partial class ElectronicComponentInventoryDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211218130506_ClasificatorClass")]
+    partial class ClasificatorClass
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

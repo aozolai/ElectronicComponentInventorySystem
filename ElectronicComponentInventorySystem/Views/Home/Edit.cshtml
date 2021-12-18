@@ -24,35 +24,21 @@
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Category" class="control-label">Category:</label>
-                <select class="input-group" asp-for="Category">
+                <label asp-for="CategoryId" class="control-label">Category:</label>
+                <select asp-for="CategoryId" asp-items="Model.Categories.Select(x => new SelectListItem(x.Name, x.Id.ToString()))" class="input-group">
                     <option value="" selected="selected"></option>
-                    <option value="Active Components">Active Components</option>
-                    <option value="Passive Component">Passive Components</option>
-                    <option value="Electromechanical Parts">Electromechanical Parts</option>
-                    <option value="Mechanical Parts">Mechanical Parts</option>
-                    <option value="Cables">Cables</option>
-                    <option value="Speakers and Buzzers">Speakers and Buzzers</option>
-                    <option value="V Modules">V Modules</option>
-                    <option value="W PC Accessories">W PC Accessories</option>
-                    <option value="X PCB Material">X PCB Material</option>
-                    <option value="Y Other Stuff">Y Other Stuff</option>
-                    <option value="Z Cooking">Z Cooking</option>
-                    <option value="Z Projects">Z Projects</option>
                 </select>
-                <span asp-validation-for="Category" class="text-danger"></span>
+                <span asp-validation-for="CategoryId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="StorageLocation" class="control-label">Storage Location:</label>
-                <select class="input-group" asp-for="StorageLocation">
+                <label asp-for="StorageLocationId" class="control-label">Storage Location:</label>
+                <select asp-for="StorageLocationId" asp-items="Model.StorageLocations.Select(x => new SelectListItem(x.Name, x.Id.ToString()))" class="input-group" required>
                     <option value="" selected="selected"></option>
-                    <option value="Box A">Box A</option>
-                    <option value="Box B">Box B</option>
                 </select>
-                <span asp-validation-for="StorageLocation" class="text-danger"></span>
+                <span asp-validation-for="StorageLocationId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Footprint" class="control-label">Footprint:</label>
+                <label asp-for="FootprintId" class="control-label">Footprint:</label>
                 <div class="form-group">
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <input type="radio" class="form-check-input" aria-label="Radio button for none value" name="radioFootprint" value="option1" />
@@ -66,13 +52,11 @@
                             <input type="radio" aria-label="Radio button for following text input" name="radioFootprint" value="option0" />
                         </div>
                     </div>
-                    <select class="col-7" id=" footprintSelect">
+                    <select asp-for="FootprintId" asp-items="Model.Footprints.Select(x => new SelectListItem(x.Name, x.Id.ToString()))" class="col">
                         <option value="" selected="selected"></option>
-                        <option value="THT">THT</option>
-                        <option value="SMD">SMD</option>
                     </select>
                 </div>
-                <span asp-validation-for="Footprint" class="text-danger"></span>
+                <span asp-validation-for="FootprintId" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="StockLevel" class="control-label">Stock Level:</label>
